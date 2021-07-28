@@ -8,6 +8,8 @@
     <!--MAYBE DELETE <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="/css/modal.css" />
+
     <style type="text/css">
       html,
       body {
@@ -27,7 +29,6 @@
     <script defer src="/__/firebase/init.js?useEmulator=true"></script>
   </head>
   <body>
-
     <section class="hero is-fullheight is-default is-bold">
         <div class="hero-body">
             <div class="container has-text-centered">
@@ -41,15 +42,52 @@
                         </h2>
                         <br>
                         <p class="has-text-centered">
-                            <a class="button is-medium is-info is-outlined">
-                                Sign In
+                            <a class="button is-medium is-info is-outlined" onclick = "signInGoogle()" style = "margin: 10px">
+                                Sign in with Google!
                             </a>
                         </p>
+
+                        <p class="has-text-centered">
+                            <a class="button is-medium is-info is-outlined" id = "myBtn" onclick = "openModal()" style = "margin: 10px">
+                                Sign in normally! (not recommended)
+                            </a>
+                        </p>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                
+                                <div class="column is-one-third has-text-left">
+                                    <div class="field">
+                                        <label class="label"> Username </label>
+                                        <div class="control">
+                                        <input class="input is-medium" type="text" id="username">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <label class="label"> Password </label>
+                                        <div class="control">
+                                        <input class="input is-medium" type="text" id="password">
+                                        </div>
+                                    </div>
+
+                                    <div class="control">
+                                        <button class="button is-success is-fullwidth has-text-weight-medium is-medium" onclick = "signIn()">Login</button>
+                                    </div>
+                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
+    <script src = "/js/signIn.js"></script>
   </body>
 </html>
